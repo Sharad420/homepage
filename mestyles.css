@@ -1,0 +1,105 @@
+:root
+{
+    --bg-color: rgb(20, 20, 20);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "PT SANS";
+}
+
+body
+{
+    background-color: var(--bg-color);
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.heading
+{
+    background-color: black;
+    color: white;
+    font-family: "PT SANS";
+    height: 120px;
+}
+
+.heading > h1 {
+    margin-left: 1.5rem;
+    font-size: 100px;
+    display: inline-block;
+    border-right: 2px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 0.9s steps(9), cursor 1.8s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 8ch; }
+}
+
+@keyframes cursor {
+    from { border-color: white; }
+    50% { border-color: transparent; }
+    to {border-color: white;}
+}
+
+
+.home
+{
+    display: flex;
+    height: 100dvh;
+    position: relative;
+    background: linear-gradient(to top, rgb(30, 255, 255) 10%, rgb(0,0,0) );
+    overflow: hidden;
+    /* Stops the elements from being shown after they exit the viewport */
+}
+
+.home > img
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.home > .parallax
+{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 80px;
+    font-family: inherit;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+
+.about
+{
+    padding: 50px;
+    background: #3B3291;
+    color: white;
+    z-index: 100;
+    position: relative;
+}
+
+.about > h2
+{
+    font-size: 40px;
+}
+
+.about > a
+{
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.about > a:hover
+{
+    text-decoration: underline;
+}

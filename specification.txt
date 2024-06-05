@@ -1,0 +1,26 @@
+The layout is divided into 4 parts:
+    -> Home page (index.html, styles.css, effects.js)
+    -> About Me (aboutme.html, mestyles.css, me-effects.js)
+    -> What I do (do.html, dostyles.css, do-effects.js)
+    -> A peek into my life (peek.html, peekstyles.css, peek-effects.js)
+each which comprise of their own CSS, HTML and JS files.
+
+HTML tags:
+    <html>, <head>, <body>, <link>, <script>, <div>, <h1>, <ul>, <li>, <a>, <br>, <img>, <section>, <h2>, <p>
+
+CSS properties:
+        font-size: 20px; text-decoration: none; color: white; text-decoration: underline; padding: 24px; margin-top: 5rem; margin-bottom: 10rem;
+
+
+I have used JavaScript for the following:
+    -> Home page: Used JS to create a hover effect where cards light up and the borders as well.
+    -> About me: Used JS to create a parallax effect while scrolling down.
+    -> What I do: Used JS to create a tile flipping effect while hovering over it.
+    -> A peek into my life: Used JS to create a scrolling effect with parallax.
+
+I have used bootstrap for the following:
+    -> About me: <h2 class="parallax position-absolute top-35 start-50 translate-middle text-white">Hi, I'm Sharad</h2>
+       has been used. This indicates the parallax class is used along with the Bootstrap classes position-absolute, top-35, start-50, text-white
+       and translate-middle for styling and positioning elements.
+
+

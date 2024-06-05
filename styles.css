@@ -1,0 +1,154 @@
+:root
+{
+    --bs-body-bg: rgb(0,0,0);
+    --card-color: rgb(23,23,23);
+}
+
+body
+{
+    background-color: var(--bs-body-bg);
+    height: 100vh;
+    margin: 0px;
+    /* overflow: hidden; */
+    padding: 0px;
+}
+
+#cards
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* justify-content: center; Doesn't work because the cards fit inside the box completely, there's no space TO justify. */
+    max-width: 610px;
+    width: calc(100% - 20px);
+    margin: 0 auto;
+
+}
+
+.card
+{
+    background-color: rgba(255, 255, 255, 0.1);
+    /* border: 1px solid rgba(255, 255, 255, 0.1); */
+    border-radius: 10px;
+    cursor: pointer;
+    height: 260px;
+    width: 300px;
+    position: relative;
+}
+
+.card::before,
+.card > .card-border
+{
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    transition: opacity 500ms;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.card::before
+{
+    background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(59, 50, 145, 0.3),
+            /* rgba(255, 255, 255, 0.1), */
+            transparent 40%
+        );
+    z-index: 3;
+}
+
+#cards > .card > .card-border
+{
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+.card > .card-border
+{
+
+    background: radial-gradient(
+            500px circle at var(--mouse-x) var(--mouse-y),
+            rgba(30, 255, 255, 0.5),
+            transparent 40%
+        );
+        opacity: 0;
+        position: absolute;
+        transition: opacity 500ms;
+        z-index: 1;
+}
+
+.card:hover > .card-border,
+.card:hover::before
+{
+    opacity: 1;
+}
+
+
+.card > .card-content /* just better practice, makes the code more flexible and resistive to clashes, like a file path with files having same name */
+{
+    background-color: var(--card-color);
+    border-radius: inherit;
+    height: calc(100% - 2px);
+    margin: 1px;
+    width: calc(100% - 2px);
+    position: relative;
+    opacity: 1;
+    z-index: 2;
+    display: flex; /* Add this */
+    justify-content: center; /* Add this */
+    align-items: center; /* Add this */
+    height: 100%; /* Add this */
+}
+
+.card-link {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+#cards > .card > .card-text
+{
+    font-size: 40px;
+    font-family: inherit;
+    color: white;
+    text-decoration: none;
+}
+
+.headtext
+{
+    background-color: black;
+    color: white;
+    font-family: "PT SANS";
+    height: 120px;
+}
+
+.headtext > h1
+{
+    margin-left: 24px; /*1.5rem*/
+    font-size: 100px;
+    display: inline-block;
+    border-right: 2px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 1.5s steps(15), cursor 2.3s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 15ch; }
+}
+
+@keyframes cursor {
+    from { border-color: white; }
+    50% { border-color: transparent; }
+    to {border-color: white;}
+}
+
+

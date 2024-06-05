@@ -1,0 +1,165 @@
+:root
+{
+    --bg-color: rgb(0, 0, 0);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "PT SANS";
+    color: white;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    /* overflow: hidden; */
+}
+
+.head
+{
+    background-color: black;
+    color: white;
+    font-family: "PT SANS";
+    height: 120px;
+}
+
+.head > h1 {
+    margin-left: 24px; /*1.5rem*/
+    font-size: 100px;
+    display: inline-block;
+    border-right: 2px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 0.9s steps(9), cursor 1.8s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 8ch; }
+}
+
+@keyframes cursor {
+    from { border-color: white; }
+    50% { border-color: transparent; }
+    to {border-color: white;}
+}
+
+.allcardcontainer
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 10%;
+}
+
+.container
+{
+    background-color: var(--bg-color);
+    width: 350px;
+    height: 500px;
+    perspective: 800px;
+    /* This gives the 3d effect */
+}
+
+.container:hover > .card
+{
+    cursor: pointer;
+    transform: rotateY(180deg);
+}
+
+.card
+{
+    background-color: var(--bg-color);
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1000ms;
+    transform-style: preserve-3d;
+}
+
+/* .card:hover
+{
+    cursor: pointer;
+    transform: rotateY(180deg);
+This causes jitter, because mouse is being moved on card which is already moving, therefore apply this effect on container which is stationary.
+} */
+
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+    position: absolute;
+    backface-visibility: hidden;
+    /* To ensure the back is also not seen */
+}
+
+.front
+{
+    border: 1px solid rgb(230, 230, 230);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back
+{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(230, 230, 230);
+    transform: rotateY(180deg);
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.goto
+{
+    padding: 24px;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+
+}
+
+.goto > h1
+{
+    font-size: 40px;
+}
+
+.goto > a
+{
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.goto > a:hover
+{
+    text-decoration: underline;
+}
+
+.card-image
+{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-radius: 1rem;
+    pointer-events: none;
+    opacity: 0.5;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 1%, rgba(0, 0, 0, 0));
+}
+
+.front-title
+{
+    color: rgba(255, 255, 255, 1);
+}
